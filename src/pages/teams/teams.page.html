@@ -1,0 +1,18 @@
+
+<ion-header>
+
+  <ion-navbar primary>
+    <ion-title>Teams</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+                <button ion-item *ngFor="let team of teams" (click)="itemTrapped($event, team)">
+                  {{team.name}}
+                </button>
+               
+        </ion-list>
+</ion-content>

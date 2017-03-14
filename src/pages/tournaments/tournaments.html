@@ -1,0 +1,20 @@
+<ion-header>
+<button primary ion-button menuToggle>
+        <ion-title>Select a Tournament</ion-title>
+</button>
+
+</ion-header>
+
+ <ion-content padding>
+        <ion-list>
+                <!--<button  ion-item (click)="itemTapped()">
+                        March madness Tournament
+                </button>
+                <button  ion-item (click)="itemTapped()">
+                        Summer Showdown Tournament
+                </button>-->
+                <button ion-item *ngFor="let tour of tournaments" (click)="itemTrapped($event, tour)">
+                        {{tour.name}}
+                </button>
+        </ion-list>
+</ion-content>

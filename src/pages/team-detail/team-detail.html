@@ -1,0 +1,55 @@
+ 
+<ion-header>
+
+  <ion-navbar primary>
+    <ion-title>{{team.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <!--<p>Record:{{teamStanding.Wins}}-- {{teamStanding.Losses}}</p>-->
+            <p>{{team.coach}}</p>
+          </ion-col>
+
+          <ion-col>
+          </ion-col>
+
+        </ion-row>
+        <ion-item>
+        <ion-label>DateFilter:</ion-label>
+        <ion-toggle [(ngModel)]="useDateFilter" (ionchange)="dateChanged()"></ion-toggle>
+         <ion-datetime displayFormat="M/D/YYYY" pickerFormat="M/D/YYYY" [(ngModel)]="dateFilter" 
+          (ionChange)="dateChanged()" ng-disabled="!useDateFilter"></ion-datetime>
+        </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item *ngFor="let game of games">
+          <ion-row>
+            <ion-col width-20>
+              <p>{{game.time | date: 'MM/dd/yy'}}</p>
+               <p>{{game.time | date: 'shortTime'}}</p> 
+
+            </ion-col>
+              <ion-col  width-60>
+                <p>{{game.homeAway}} {{game.opponent}}</p>
+               <p>{{game.location}}</p>
+
+            </ion-col>
+              <ion-col width-20>
+              <h4>{{game.scoresDisplay}}
+                <ion-badge [class]="getScoreDisplayBadgeClass(game)">{{getScoreWorL(game)}}</ion-badge>
+              </h4>
+            </ion-col>
+          </ion-row>
+    </ion-item>
+
+  </ion-list>
+ 
+</ion-content> 
